@@ -55,5 +55,23 @@ namespace tictactoe
 
             return false; //return no winner if nothing matches
         }
+
+        public static bool CheckForTie(char[,] gameBoard)
+        {
+            for (int row = 0; row <= 2; row++)
+            {
+                for (int col = 0; col <= 2; col++)
+                {
+                    if (gameBoard[row, col] == ' ')
+                    {
+                        return false; // Not a tie, there's still an empty space
+                    }
+                }
+            }
+            // If this point is reached, the board is full and no winner, thus it's a tie
+            Console.WriteLine("The game is a tie!");
+            return true;
+        }
     }
+}
 }
