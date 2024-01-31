@@ -1,5 +1,6 @@
-﻿// Create an instance of the supporting class in our driver class
-// SupportingClass sc = new SupportingClass();
+﻿using tictactoe;
+// Create an instance of the supporting class in our driver class
+SupportClass sc = new SupportClass();
 
 // Initialize some variables
 char[,] gameBoard = new char[3,3];
@@ -7,13 +8,15 @@ string player1 = "";
 string player2 = "";
 bool playGame = true;
 int playerTurn = 1;
+int setUp = 49;
 
 // set up initial gameboard with blank spaces
 for (int i = 0; i < 3; i++)
 {
     for (int j = 0; j < 3; j++)
     {
-        gameBoard[i,j] = char.Parse("-");
+        gameBoard[i,j] = (char)setUp;
+        setUp++;
     }
 }
 
@@ -39,7 +42,7 @@ do
         //}
       //  Console.WriteLine("");
     //}
-    sc.PrintBoard(gameBoard);
+    SupportClass.PrintBoard(gameBoard);
     bool correctInput =  false;
 
     // int userInput = 0;
@@ -80,7 +83,8 @@ do
             correctInput = true;
         } 
 
-        if (gameBoard[matrixSpot[0], matrixSpot[1]] == char.Parse("-") && correctInput)
+        //if (gameBoard[matrixSpot[0], matrixSpot[1]] == char.Parse("-") && correctInput)
+        if (gameBoard[matrixSpot[0], matrixSpot[1]] < 58 && correctInput)
         {
             // update spot
             gameBoard[matrixSpot[0], matrixSpot[1]] = symbol;
@@ -98,14 +102,9 @@ do
     playerTurn++;
 
     //check for winner
-    if (sc.CheckForWinner(gameBoard, turnPlayer))
+    if (SupportClass.CheckForWinner(gameBoard))
     {
-        Console.WriteLine("Would you like to play again? (y/N)");
-        string playAgain = Console.ReadLine();
-        playAgain = playAgain.ToLower()
-        if (!String.Equals(playAgain[0], "y")
-        {
-            playGame = false;
-        }
+        SupportClass.PrintBoard(gameBoard);
+        playGame = false;
     }
 } while (playGame);
