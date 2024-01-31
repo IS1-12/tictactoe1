@@ -103,10 +103,9 @@ do
         Console.WriteLine("Would you like to play again? (y/N)");
         string playAgain = Console.ReadLine();
         playAgain = playAgain.ToLower()
-        if (playAgain[0] == "y")
+        if (!String.Equals(playAgain[0], "y")
         {
             playGame = false;
         }
-        
     }
 } while (playGame);
