@@ -9,6 +9,7 @@ string player2 = "";
 bool playGame = true;
 int playerTurn = 1;
 int setUp = 49;
+bool wantToPlay = false;
 
 // set up initial gameboard with blank spaces
 for (int i = 0; i < 3; i++)
@@ -102,7 +103,7 @@ do
     playerTurn++;
 
     //check for winner
-    if (SupportClass.CheckForWinner(gameBoard))
+    if (SupportClass.CheckForWinner(gameBoard, turnPlayer))
     {
         SupportClass.PrintBoard(gameBoard);
         playGame = false;
