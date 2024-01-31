@@ -53,25 +53,16 @@ namespace tictactoe
                 return true;
             }
 
-            return false; //return no winner if nothing matches
-        }
-
-        public static bool CheckForTie(char[,] gameBoard)
-        {
-            for (int row = 0; row <= 2; row++)
+            if (gameBoard[0,0] != '1' && gameBoard[1,0] != '4' && gameBoard[2,0] != '7' &&
+                gameBoard[0,1] != '2' && gameBoard[1,1] != '5' && gameBoard[2,1] != '8' &&
+                gameBoard[0,2] != '3' && gameBoard[1,2] != '6' && gameBoard[2,2] != '9')
             {
-                for (int col = 0; col <= 2; col++)
-                {
-                    if (gameBoard[row, col] == ' ')
-                    {
-                        return false; // Not a tie, there's still an empty space
-                    }
-                }
+                Console.WriteLine("This game is a tie. Restart the program to play again.");
+                return true;
             }
-            // If this point is reached, the board is full and no winner, thus it's a tie
-            Console.WriteLine("The game is a tie!");
-            return true;
+
+            return false; //return no winner if nothing matches
         }
     }
 }
-}
+
