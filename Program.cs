@@ -37,14 +37,14 @@ do
 {
     //for (int i = 0; i < 3; i++)
     //{
-        //for (int j = 0; j < 3; j++)
-        //{
-          //  Console.Write(gameBoard[i, j]);
-        //}
-      //  Console.WriteLine("");
+    //for (int j = 0; j < 3; j++)
+    //{
+    //  Console.Write(gameBoard[i, j]);
+    //}
+    //  Console.WriteLine("");
     //}
     SupportClass.PrintBoard(gameBoard);
-    bool correctInput =  false;
+    bool correctInput = false;
 
     // int userInput = 0;
     string userString = "";
@@ -64,7 +64,7 @@ do
         userString = Console.ReadLine();
         int userInput = userString[0];
 
-        if (userInput > 57 || userInput < 49)
+        if ((userInput > 57 || userInput < 49) || (userString.Length > 1))
         {
             Console.WriteLine("Invalid input; please try again.");
         }
@@ -82,7 +82,7 @@ do
         {
             matrixSpot = [0, userInput - 49];
             correctInput = true;
-        } 
+        }
 
         //if (gameBoard[matrixSpot[0], matrixSpot[1]] == char.Parse("-") && correctInput)
         if (gameBoard[matrixSpot[0], matrixSpot[1]] < 58 && correctInput)
@@ -96,7 +96,7 @@ do
             correctInput = false;
         }
 
-    } while(!correctInput);
+    } while (!correctInput);
 
 
     // increment player turn
@@ -109,3 +109,13 @@ do
         playGame = false;
     }
 } while (playGame);
+
+static bool OneStringEntry(string userString)
+{
+    return userString.Length ==1 && char.IsDigit(userString[0]);
+}
+
+static bool Number(string userString)
+{
+    return int.TryParse(userString, out _);
+}
