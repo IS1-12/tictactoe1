@@ -10,6 +10,7 @@ namespace tictactoe
     {
         public static void PrintBoard(char[,] gameBoard)
         {
+            //loop through 2-dimensional array and print board
             for (int iOuter = 0; iOuter <= 2; iOuter++)
             {
                 for (int iInner = 0; iInner <= 2; iInner++)
@@ -53,6 +54,7 @@ namespace tictactoe
                 return true;
             }
 
+            //check for tie
             if (gameBoard[0,0] != '1' && gameBoard[1,0] != '4' && gameBoard[2,0] != '7' &&
                 gameBoard[0,1] != '2' && gameBoard[1,1] != '5' && gameBoard[2,1] != '8' &&
                 gameBoard[0,2] != '3' && gameBoard[1,2] != '6' && gameBoard[2,2] != '9')

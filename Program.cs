@@ -53,6 +53,7 @@ do
     string turnPlayer = "";
     char symbol = ' ';
 
+    //game loop
     do
     {
         int turn = playerTurn % 2;
@@ -64,6 +65,7 @@ do
         userString = Console.ReadLine();
         int userInput = userString[0];
 
+        //confirm input validity and enter input
         if ((userInput > 57 || userInput < 49) || (userString.Length > 1))
         {
             Console.WriteLine("Invalid input; please try again.");
@@ -84,7 +86,7 @@ do
             correctInput = true;
         }
 
-        //if (gameBoard[matrixSpot[0], matrixSpot[1]] == char.Parse("-") && correctInput)
+        //check validity of placement
         if (gameBoard[matrixSpot[0], matrixSpot[1]] < 58 && correctInput)
         {
             // update spot
@@ -109,13 +111,3 @@ do
         playGame = false;
     }
 } while (playGame);
-
-static bool OneStringEntry(string userString)
-{
-    return userString.Length ==1 && char.IsDigit(userString[0]);
-}
-
-static bool Number(string userString)
-{
-    return int.TryParse(userString, out _);
-}
